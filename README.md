@@ -34,9 +34,9 @@ This is a Rock Paper Scissors game where you will play against the computer. The
    g++ -o rock_paper_scissors main.cpp
 4. Run the compiled program: ./rock_paper_scissors
 
-### Sample Output
+## Sample Output
 Upon running the game, you will be presented with a menu to start the game or exit. Follow the on-screen instructions to play.   
-
+```
 ======================================
 ===           WELCOME TO           ===
 ===    Rock Paper Scissors Game    ===
@@ -47,12 +47,12 @@ Upon running the game, you will be presented with a menu to start the game or ex
 ===           2. Exit              ===
 ======================================
 Enter your option: 
-
-### Author
+```
+## Author
 Chris 2024/06/22
 
-### Source Code
-
+## Source Code
+```
 #include <iostream>
 #include <ctime>
 #include <map>
@@ -289,3 +289,4 @@ void fight(char &player, char &computer, int &playerScore, int &computerScore)
     cout << "=== Computer Score : " << computerScore << endl;
     cout << "======================================" << endl;
 }
+```
