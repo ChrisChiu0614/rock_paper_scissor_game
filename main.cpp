@@ -3,6 +3,7 @@
 #include <map>
 using namespace std;
 
+// Function declarations
 void displayMenu();
 void playerChoice(char &);
 void computerChoice(char &);
@@ -11,9 +12,7 @@ void fight(char &, char &, int &, int &);
 void startGame();
 int getValidatedInput();
 
-/*
-const attribute
-*/
+// Constants
 const int START = 1;
 const int EXIT = 2;
 const int NUMBER_OF_GAME = 3;
@@ -27,15 +26,15 @@ const string TIES = "It's a tie!";
 int main()
 {
     srand(static_cast<unsigned int>(time(0))); //initialize random number generator
-    displayMenu();
+    displayMenu(); // Display the game menu
     int options;
     do
     {
-        options = getValidatedInput();
-        switch (options)
+        options = getValidatedInput(); // Get user input
+        switch (options) 
         {
         case START:
-            startGame();
+            startGame(); // Start the game
             cout << "==============GAME  OVER==============" << endl;
             cout << "Do you want to play again? " << endl;
             cout << "[  1 = YES, 2 = NO   ]" << endl;   
@@ -51,11 +50,15 @@ int main()
 
     return 0;
 }
+
+/**
+ * Function to validate user input
+ * Ensures that the input is a number
+ * @return int - the validated input
+ */
 int getValidatedInput()
 {
     int options;
-    //cin.clear(); // 清除錯誤標幟
-    //cin.ignore(numeric_limits<streamsize>::max(), '\n'); // 清除输入緩衝區
     while (!(cin >> options))
     {
         cin.clear();
@@ -65,6 +68,10 @@ int getValidatedInput()
     return options;
 }
 
+/**
+ * Function to display the game menu
+ * Provides options to start the game or exit
+ */
 void displayMenu()
 {
     cout << "======================================" << endl;
@@ -79,6 +86,11 @@ void displayMenu()
     cout << "======================================" << endl;
     cout << "Enter your option: ";
 }
+
+/**
+ * Function to start the game
+ * Manages the game loop and score tracking
+ */
 void startGame()
 {
     int playerScore = 0;
@@ -102,6 +114,11 @@ void startGame()
     }
 }
 
+/**
+ * Function to get the player's choice
+ * Validates the choice to ensure it is either 'r', 'p', or 's'
+ * @param char &choice - reference to store the player's choice
+ */
 void playerChoice(char &choice)
 {
     do
@@ -125,6 +142,12 @@ void playerChoice(char &choice)
     cout << "player choise is : ";
     displayChoice(choice);
 }
+
+/**
+ * Function to get the computer's choice
+ * Randomly selects between 'r', 'p', and 's'
+ * @param char &choice - reference to store the computer's choice
+ */
 void computerChoice(char &choice)
 {
     
@@ -145,6 +168,11 @@ void computerChoice(char &choice)
     cout << "Computer choise is : ";
     displayChoice(choice);
 }
+
+/**
+ * Function to display the choice (Rock, Paper, or Scissors)
+ * @param char choice - the choice to be displayed
+ */
 void displayChoice(char choice)
 {
     switch (choice)
@@ -160,6 +188,15 @@ void displayChoice(char choice)
         break;
     }
 }
+
+/**
+ * Function to determine the result of a round
+ * Updates the scores based on the choices of player and computer
+ * @param char &player - the player's choice
+ * @param char &computer - the computer's choice
+ * @param int &playerScore - the player's score
+ * @param int &computerScore - the computer's score
+ */
 void fight(char &player, char &computer, int &playerScore, int &computerScore)
 {
     map<pair<char, char>, string> result_map = {
