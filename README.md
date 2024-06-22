@@ -32,7 +32,9 @@ This is a Rock Paper Scissors game where you will play against the computer. The
 3. Compile the code using the following command:
    ```sh
    g++ -o rock_paper_scissors main.cpp
-4. Run the compiled program: ./rock_paper_scissors
+4. Run the compiled program: 
+    ```sh
+    ./rock_paper_scissors
 
 ## Sample Output
 Upon running the game, you will be presented with a menu to start the game or exit. Follow the on-screen instructions to play.   
